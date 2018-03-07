@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>h264-live-player web client demo</title>
+  </head>
+  <body>
+
+    <button type="button" onclick="wsavc.playStream()">开始</button>
+    <button type="button" onclick="wsavc.stopStream()">停止</button>
+    <button type="button" onclick="wsavc.disconnect()">断开</button>
+    <br/>
+    <canvas id="hehe" width="1920" height="1080"></canvas>
+
+  <!-- provide WSAvcPlayer -->
+    <script type="text/javascript" src="http-live-player.js">;</script>
+    <script type="text/javascript">
+
+
+
+
+
+var canvas1 = document.getElementById("hehe");
+document.body.appendChild(canvas1);
+
+// 创建播放器
+var uri = "ws://" + document.location.host;
+var wsavc = new WSAvcPlayer("yuv", 1, 3);
+wsavc.connect(uri);
+
+//expose instance for button callbacks
+window.wsavc = wsavc;
+
+    </script>
+  </body>
+</html>
