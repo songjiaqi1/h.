@@ -10,7 +10,7 @@ const Server = require('./_server');
 class FFMpegServer extends Server {
 
   constructor(server, opts) {
-    super(server, merge({
+    super(server,  merge({
       fps : 15,
     }, opts));
   }
